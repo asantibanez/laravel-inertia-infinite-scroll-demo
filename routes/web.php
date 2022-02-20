@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Resources\CommentResource;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['inertia'])
+    ->group(function () {
+        Route::get('/feed', function () {
+            return Inertia::render('Feed/Show', [
+                'comments' => CommentResource::collection(
+                    Comment::query()->orderByDesc('id')->paginate(20),
+                ),
+                'next_comments' => Inertia::lazy(function () {
+                    return CommentResource::collection(Comment::query()->orderByDesc('id')->paginate(20));
+                }),
+            ]);
+        });
+    });
