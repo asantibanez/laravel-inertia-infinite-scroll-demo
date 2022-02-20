@@ -18,7 +18,8 @@ class CommentFactory extends Factory
     {
         return [
             'author' => $this->faker->name,
-            'content' => $this->faker->words($this->faker->numberBetween(5, 20), true)
+            'content' => $this->faker->words($this->faker->numberBetween(5, 20), true),
+            'liked' => $this->faker->boolean,
         ];
     }
 }

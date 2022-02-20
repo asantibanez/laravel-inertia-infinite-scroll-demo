@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('author');
             $table->string('content');
+            $table->boolean('liked');
             $table->timestamps();
         });
     }
