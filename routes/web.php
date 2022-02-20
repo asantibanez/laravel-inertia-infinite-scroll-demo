@@ -27,9 +27,6 @@ Route::middleware(['inertia'])
                 'comments' => CommentResource::collection(
                     Comment::query()->orderByDesc('id')->paginate(20),
                 ),
-                'next_comments' => Inertia::lazy(function () {
-                    return CommentResource::collection(Comment::query()->orderByDesc('id')->paginate(20));
-                }),
             ]);
         });
     });

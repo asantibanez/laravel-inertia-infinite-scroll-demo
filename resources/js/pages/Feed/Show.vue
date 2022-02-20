@@ -42,13 +42,11 @@ export default defineComponent({
         }
 
         Inertia.visit(nextLink.value, {
-          only: ['next_comments'],
           preserveState: true,
           preserveScroll: true,
           onSuccess: (data) => {
-            localComments.value = [...localComments.value, ...data.props.next_comments.data]
-
-            nextLink.value = data.props.next_comments.links.next
+            localComments.value = [...localComments.value, ...data.props.comments.data]
+            nextLink.value = data.props.comments.links.next
           },
         })
       }
