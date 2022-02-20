@@ -91,9 +91,7 @@ export default defineComponent({
     })
 
     const handleLike = (comment) => {
-        const form = useForm({
-            current_page: props.comments.meta.current_page
-        })
+        const form = useForm({})
 
         form.post(`/comments/${comment.id}/like`, {
             only: ['updated_comment'],
@@ -106,9 +104,7 @@ export default defineComponent({
     }
 
     const handleDislike = (comment) => {
-        const form = useForm({
-            current_page: props.comments.meta.current_page
-        })
+        const form = useForm({})
 
         form.delete(`/comments/${comment.id}/like`, {
             only: ['updated_comment'],

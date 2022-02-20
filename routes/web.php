@@ -41,7 +41,6 @@ Route::middleware(['inertia'])
             $comment->save();
 
             $backUrl = route('feed', [
-                'page' => request('current_page'),
                 'updated_comment_id' => $comment->id,
             ]);
 
@@ -54,7 +53,6 @@ Route::middleware(['inertia'])
             $comment->save();
 
             $backUrl = route('feed', [
-                'page' => request('current_page'),
                 'updated_comment_id' => $comment->id,
             ]);
 
