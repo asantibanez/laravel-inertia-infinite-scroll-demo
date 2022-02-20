@@ -4,7 +4,7 @@
       <div class="overflow-y-auto divide-y" style="height: 64rem" ref="commentsListNode">
         <div v-for="comment in localComments" class="p-6">
           <p class="font-medium text-sm text-gray-900">
-            {{ comment.author }}
+            {{ comment.author }} (#{{ comment.id }})
           </p>
           <p class="text-sm text-gray-700 mt-1">
             {{ comment.content }}
